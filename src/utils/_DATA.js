@@ -21,9 +21,9 @@ let users = {
 		},
 		questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
 	},
-	dan_abramov: {
-		id: 'dan_abramov',
-		name: 'Dan Abramov',
+	johndoe: {
+		id: 'johndoe',
+		name: 'John Doe',
 		avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
 		answers: {
 			xj352vofupe1dqz9emx13r: 'optionOne',
