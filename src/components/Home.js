@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, List } from 'antd';
+import { Avatar, Card, List } from 'antd';
+import '../App.css';
+
+const { Meta } = Card;
 
 class Home extends Component {
 	state = {
@@ -13,7 +16,7 @@ class Home extends Component {
 	};
 
 	render() {
-		const { authedUser, questions } = this.props;
+		const { authedUser, users, questions } = this.props;
 		const { toggleAnswer } = this.state;
 
 		const filteredByUser = Object.values(questions).filter(question => {
@@ -27,14 +30,16 @@ class Home extends Component {
 			(a, b) => b.timestamp - a.timestamp
 		);
 
+		console.log('fuckckgin ', sortedByTime);
+
 		const tabList = [
 			{
 				key: 'UnAnswered',
-				tab: 'UnAnswered',
+				tab: 'UnAnswered Questions',
 			},
 			{
 				key: 'Answered',
-				tab: 'Answered',
+				tab: 'Answered Questions',
 			},
 		];
 
@@ -44,20 +49,40 @@ class Home extends Component {
 					grid={{
 						gutter: 16,
 						xs: 1,
-						sm: 2,
-						md: 4,
-						lg: 4,
-						xl: 6,
+						sm: 1,
+						md: 2,
+						lg: 2,
+						xl: 3,
 						xxl: 3,
 					}}
 					dataSource={sortedByTime}
-					renderItem={item => (
-						<List.Item key={item.key}>
-							<Card title={item.author}>
-								{item.optionOne.text} | {item.optionTwo.text}
-							</Card>
-						</List.Item>
-					)}
+					renderItem={item => {
+						const avatar = users[item.author].avatarURL;
+						return (
+							<List.Item key={item.key}>
+								<Card>
+									<Meta
+										avatar={<Avatar src={avatar} />}
+										title={item.author + ' asked'}
+									/>
+									<p
+										style={{
+											fontSize: 14,
+											marginBottom: 16,
+											fontWeight: 500,
+										}}>
+										Would you rather...?
+									</p>
+									<Card type="inner">
+										{item.optionOne.text}
+									</Card>
+									<Card type="inner">
+										{item.optionTwo.text}
+									</Card>
+								</Card>
+							</List.Item>
+						);
+					}}
 				/>
 			),
 			Answered: (
@@ -65,20 +90,40 @@ class Home extends Component {
 					grid={{
 						gutter: 16,
 						xs: 1,
-						sm: 2,
-						md: 4,
-						lg: 4,
-						xl: 6,
+						sm: 1,
+						md: 2,
+						lg: 2,
+						xl: 3,
 						xxl: 3,
 					}}
 					dataSource={sortedByTime}
-					renderItem={item => (
-						<List.Item key={item.key}>
-							<Card title={item.author}>
-								{item.optionOne.text} | {item.optionTwo.text}
-							</Card>
-						</List.Item>
-					)}
+					renderItem={item => {
+						const avatar = users[item.author].avatarURL;
+						return (
+							<List.Item key={item.key}>
+								<Card>
+									<Meta
+										avatar={<Avatar src={avatar} />}
+										title={item.author + ' asked'}
+									/>
+									<p
+										style={{
+											fontSize: 14,
+											marginBottom: 16,
+											fontWeight: 500,
+										}}>
+										Would you rather...?
+									</p>
+									<Card type="inner">
+										{item.optionOne.text}
+									</Card>
+									<Card type="inner">
+										{item.optionTwo.text}
+									</Card>
+								</Card>
+							</List.Item>
+						);
+					}}
 				/>
 			),
 		};
