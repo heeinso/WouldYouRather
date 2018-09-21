@@ -14,3 +14,13 @@
 	float: left;
 	margin: 5px 20px;
 }
+
+.login-form {
+	max-width: 500px;
+	margin: 200px auto;
+	padding-left: 50px;
+}
+
+.login-form-button {
+	width: 100%;
+}

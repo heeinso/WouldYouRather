@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-	BrowserRouter as Router,
-	Route,
-	NavLink,
-	Switch,
-} from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Layout } from 'antd';
 
 import { handleInitialData } from './actions';
-import Dashboard from './components/Dashboard';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 import Leaderboard from './components/Leaderboard';
 import Login from './components/Login';
 import NewQuestion from './components/NewQuestion';
@@ -17,7 +13,7 @@ import QuestionPage from './components/QuestionPage';
 import NotFound from './components/NotFound';
 import './App.css';
 
-const { Header, Footer, Content } = Layout;
+const { Footer, Content } = Layout;
 
 class App extends Component {
 	componentDidMount() {
@@ -25,27 +21,14 @@ class App extends Component {
 	}
 
 	render() {
+		const { loggedIn } = this.props;
+
+		console.log('Is logged In? ', loggedIn);
+
 		return (
 			<Router>
 				<Layout style={{ height: '100vh' }}>
-					<Header>
-						<div className="logo" />
-						<Menu
-							theme="dark"
-							mode="horizontal"
-							defaultSelectedKeys={['1']}
-							style={{ lineHeight: '64px' }}>
-							<Menu.Item key="1">
-								<NavLink to="/">Home</NavLink>
-							</Menu.Item>
-							<Menu.Item key="2">
-								<NavLink to="/leaderboard">Leaderboard</NavLink>
-							</Menu.Item>
-							<Menu.Item key="3">
-								<NavLink to="/add">Add Question</NavLink>
-							</Menu.Item>
-						</Menu>
-					</Header>
+					<Navbar />
 
 					<Content style={{ padding: '0 50px' }}>
 						<div
@@ -54,13 +37,9 @@ class App extends Component {
 								padding: 24,
 								height: '90vh',
 							}}>
-							{this.props.loggedIn ? (
+							{loggedIn ? (
 								<Switch>
-									<Route
-										path="/"
-										exact
-										component={Dashboard}
-									/>
+									<Route path="/" exact component={Home} />
 									<Route
 										path="/login"
 										exact
