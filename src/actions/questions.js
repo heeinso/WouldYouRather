@@ -18,9 +18,9 @@ export function handleAddQuestion(optionA, optionB) {
 
 		const questionInfo = { optionA, optionB, auther: authedUser };
 
-		return saveQuestion(questionInfo).then(question =>
-			dispatch(addQuestion(question))
-		);
+		return saveQuestion(questionInfo).then(question => {
+			dispatch(addQuestion(question));
+		});
 	};
 }
 
@@ -33,7 +33,8 @@ export function receiveQuestions(questions) {
 
 export function answerQuestion(authedUser, qid, answer) {
 	return {
-		ANSWER_QUESTION,
+		type: ANSWER_QUESTION,
+		authedUser,
 		qid,
 		answer,
 	};
@@ -45,8 +46,8 @@ export function handleAnswerQuestion(question, answer) {
 
 		const answerInfo = { authedUser, qid: question.id, answer };
 
-		return saveQuestionAnswer(answerInfo).then(() =>
-			dispatch(answerQuestion(authedUser, question, answer))
-		);
+		return saveQuestionAnswer(answerInfo).then(() => {
+			dispatch(answerQuestion(authedUser, question, answer));
+		});
 	};
 }
