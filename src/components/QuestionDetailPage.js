@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const QuestionPage = () => {
+const QuestionDetailPage = () => {
 	return <div>QuestionPage</div>;
 };
 
@@ -14,4 +14,4 @@ const mapStateToProps = ({ authedUser, questions }, props) => {
 	};
 };
 
-export default connect(mapStateToProps)(QuestionPage);
+export default connect(mapStateToProps)(QuestionDetailPage);
