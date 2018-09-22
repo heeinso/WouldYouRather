@@ -35,3 +35,18 @@
 .ant-tabs-nav-wrap {
 	text-align: center;
 }
+
+.ant-card-body {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ant-card-hoverable:hover {
+	background-color: #fafafa;
+}
+
+.answered {
+	background-color: #fafafa;
+	font-weight: bolder;
+}

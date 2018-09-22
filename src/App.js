@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import Leaderboard from './components/Leaderboard';
 import Login from './components/Login';
 import NewQuestion from './components/NewQuestion';
-import QuestionPage from './components/QuestionPage';
+import QuestionDetailPage from './components/QuestionDetailPage';
 import NotFound from './components/NotFound';
 import './App.css';
 
@@ -27,7 +27,7 @@ class App extends Component {
 
 		return (
 			<Router>
-				<Layout style={{ height: '100vh' }}>
+				<Layout style={{ minHeight: '100vh' }}>
 					<Navbar />
 
 					<Content style={{ padding: '0 50px' }}>
@@ -35,7 +35,7 @@ class App extends Component {
 							style={{
 								background: '#fff',
 								padding: 24,
-								height: '90vh',
+								minHeight: '85vh',
 							}}>
 							{loggedIn ? (
 								<Switch>
@@ -58,7 +58,7 @@ class App extends Component {
 									<Route
 										path="/questions/:id"
 										exact
-										component={QuestionPage}
+										component={QuestionDetailPage}
 									/>
 									<Route component={NotFound} />
 								</Switch>
@@ -71,9 +71,7 @@ class App extends Component {
 					<Footer
 						style={{
 							textAlign: 'center',
-							position: 'absolute',
-							bottom: 0,
-							width: '100%',
+							display: 'block',
 						}}>
 						Would You Rather ©2018 Created by heeinso
 					</Footer>
