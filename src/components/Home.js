@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Avatar, Card, List } from 'antd';
-import '../App.css';
+import { Card, List } from 'antd';
 
-const { Meta } = Card;
+import QuestionCard from './QuestionCard';
+import '../App.css';
 
 class Home extends Component {
 	state = {
@@ -30,8 +30,6 @@ class Home extends Component {
 			(a, b) => b.timestamp - a.timestamp
 		);
 
-		console.log('fuckckgin ', sortedByTime);
-
 		const tabList = [
 			{
 				key: 'UnAnswered',
@@ -56,30 +54,10 @@ class Home extends Component {
 						xxl: 3,
 					}}
 					dataSource={sortedByTime}
-					renderItem={item => {
-						const avatar = users[item.author].avatarURL;
+					renderItem={question => {
 						return (
-							<List.Item key={item.key}>
-								<Card>
-									<Meta
-										avatar={<Avatar src={avatar} />}
-										title={item.author + ' asked'}
-									/>
-									<p
-										style={{
-											fontSize: 14,
-											marginBottom: 16,
-											fontWeight: 500,
-										}}>
-										Would you rather...?
-									</p>
-									<Card type="inner">
-										{item.optionOne.text}
-									</Card>
-									<Card type="inner">
-										{item.optionTwo.text}
-									</Card>
-								</Card>
+							<List.Item key={question.key}>
+								<QuestionCard question={question} />
 							</List.Item>
 						);
 					}}
@@ -97,30 +75,10 @@ class Home extends Component {
 						xxl: 3,
 					}}
 					dataSource={sortedByTime}
-					renderItem={item => {
-						const avatar = users[item.author].avatarURL;
+					renderItem={question => {
 						return (
-							<List.Item key={item.key}>
-								<Card>
-									<Meta
-										avatar={<Avatar src={avatar} />}
-										title={item.author + ' asked'}
-									/>
-									<p
-										style={{
-											fontSize: 14,
-											marginBottom: 16,
-											fontWeight: 500,
-										}}>
-										Would you rather...?
-									</p>
-									<Card type="inner">
-										{item.optionOne.text}
-									</Card>
-									<Card type="inner">
-										{item.optionTwo.text}
-									</Card>
-								</Card>
+							<List.Item key={question.key}>
+								<QuestionCard question={question} />
 							</List.Item>
 						);
 					}}
