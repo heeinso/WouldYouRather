@@ -21,6 +21,12 @@
 	padding-left: 50px;
 }
 
+.new-question-from {
+	max-width: 500px;
+	margin: 200px auto;
+	padding-left: 50px;
+}
+
 .login-form-button {
 	width: 100%;
 }
