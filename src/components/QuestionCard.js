@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Avatar, Card, Icon } from 'antd';
+import { Avatar, Card } from 'antd';
 import * as actions from '../actions/questions';
 
 const { Meta } = Card;

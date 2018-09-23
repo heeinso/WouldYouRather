@@ -16,7 +16,7 @@ class Home extends Component {
 	};
 
 	render() {
-		const { authedUser, users, questions } = this.props;
+		const { authedUser, questions } = this.props;
 		const { toggleAnswer } = this.state;
 
 		const filteredByUser = Object.values(questions).filter(question => {

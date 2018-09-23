@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import QuestionCard from './QuestionCard';
-import { Card, Row, Col } from 'antd';
 
 import '../App.css';
 

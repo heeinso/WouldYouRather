@@ -21,13 +21,17 @@
 	padding-left: 50px;
 }
 
-.new-question-from {
-	max-width: 500px;
-	margin: 200px auto;
-	padding-left: 50px;
+.new-question-form {
+	max-width: 800px;
+	margin: 50px auto;
+	padding-left: 70px;
 }
 
 .login-form-button {
+	width: 100%;
+}
+
+.new-question-form-button {
 	width: 100%;
 }
 
@@ -55,4 +59,8 @@
 .answered {
 	background-color: #fafafa;
 	font-weight: bolder;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+	background-color: transparent;
 }

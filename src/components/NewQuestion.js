@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
-import { Form, Select, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 const FormItem = Form.Item;
-const Option = Select.Option;
 
 class NewQuestion extends Component {
 	handleSubmit = e => {
@@ -35,41 +34,51 @@ class NewQuestion extends Component {
 					}}>
 					Add Question
 				</h3>
-				<Form
-					onSubmit={this.handleSubmit}
-					className="new-question-form">
-					<FormItem
-						label="OptionOne"
-						labelCol={{ span: 5 }}
-						wrapperCol={{ span: 12 }}>
-						{getFieldDecorator('One', {
-							rules: [
-								{
-									required: true,
-									message: 'Please input option one!',
-								},
-							],
-						})(<Input placeholder="Option One" />)}
-					</FormItem>
-					<FormItem
-						label="OptionTwo"
-						labelCol={{ span: 5 }}
-						wrapperCol={{ span: 12 }}>
-						{getFieldDecorator('Two', {
-							rules: [
-								{
-									required: true,
-									message: 'Please input option two!',
-								},
-							],
-						})(<Input placeholder="Option Two" />)}
-					</FormItem>
-					<FormItem wrapperCol={{ span: 12, offset: 5 }}>
-						<Button type="primary" htmlType="submit">
-							Submit
-						</Button>
-					</FormItem>
-				</Form>
+				<div
+					style={{
+						textAlign: 'left',
+						width: '600px',
+						margin: '50px auto',
+					}}>
+					<Form
+						onSubmit={this.handleSubmit}
+						className="new-question-form">
+						<FormItem
+							label="OptionOne"
+							labelCol={{ span: 5 }}
+							wrapperCol={{ span: 12 }}>
+							{getFieldDecorator('One', {
+								rules: [
+									{
+										required: true,
+										message: 'Please input option one!',
+									},
+								],
+							})(<Input placeholder="Option One" />)}
+						</FormItem>
+						<FormItem
+							label="OptionTwo"
+							labelCol={{ span: 5 }}
+							wrapperCol={{ span: 12 }}>
+							{getFieldDecorator('Two', {
+								rules: [
+									{
+										required: true,
+										message: 'Please input option two!',
+									},
+								],
+							})(<Input placeholder="Option Two" />)}
+						</FormItem>
+						<FormItem wrapperCol={{ span: 12, offset: 5 }}>
+							<Button
+								type="primary"
+								htmlType="submit"
+								className="new-question-form-button">
+								Submit
+							</Button>
+						</FormItem>
+					</Form>
+				</div>
 			</div>
 		);
 	}
