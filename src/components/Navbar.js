@@ -50,7 +50,7 @@ class Navbar extends Component {
 
 						{loggedIn ? (
 							<Menu.Item
-								key="5"
+								key="/login"
 								style={{
 									float: 'right',
 									marginRight: '50px',
@@ -70,7 +70,7 @@ class Navbar extends Component {
 							</Menu.Item>
 						) : (
 							<Menu.Item
-								key="4"
+								key="/login"
 								style={{
 									float: 'right',
 									marginRight: '100px',
