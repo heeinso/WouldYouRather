@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
+import LoadingBar from 'react-redux-loading';
 
 import { handleInitialData } from './actions';
 import Home from './components/Home';
@@ -29,7 +30,7 @@ class App extends Component {
 			<Router>
 				<Layout style={{ minHeight: '100vh' }}>
 					<Navbar />
-
+					<LoadingBar style={{ backgroundColor: '#5DA8F8' }} />
 					<Content style={{ padding: '0 50px' }}>
 						<div
 							style={{
