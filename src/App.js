@@ -61,26 +61,11 @@ class App extends Component {
 										exact
 										component={QuestionDetailPage}
 									/>
+									<Route component={NotFound} />
 								</Switch>
 							) : (
 								<Switch>
-									<Route path="/" exact component={Login} />
-									<Route
-										path="/login"
-										exact
-										component={Login}
-									/>
-									<Route
-										path="/add"
-										exact
-										component={Login}
-									/>
-									<Route
-										path="/leaderboard"
-										exact
-										component={Login}
-									/>
-									<Route component={NotFound} />
+									<Route component={Login} />
 								</Switch>
 							)}
 						</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import QuestionCard from './QuestionCard';
 
 import '../App.css';
@@ -8,6 +9,10 @@ const QuestionDetailPage = props => {
 	const { questions, id } = props;
 
 	const question = questions[id];
+
+	if (!!!question) {
+		return <Redirect from="*" to="/not-found" />;
+	}
 
 	return (
 		<div>

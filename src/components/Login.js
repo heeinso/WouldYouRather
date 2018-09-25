@@ -20,6 +20,9 @@ class Login extends Component {
 		this.props.form.validateFields(err => {
 			if (!err) {
 				dispatch(setAuthedUser(this.state.userId));
+				if (window.location.pathname !== '/login') {
+					return;
+				}
 				history.push('/');
 			} else {
 				console.log('Error message: ', err.user.errors[0].message);
